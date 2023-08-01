@@ -1,0 +1,34 @@
+--Create a store database
+
+CREATE TABLE my_store (id INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, aisle INTEGER, price INTEGER); 
+
+INSERT into my_store VALUES (1, "Nike shoes", 55, 1, 89.99);
+INSERT into my_store VALUES (2, "Addidias shoes", 78, 2, 99.99);
+INSERT into my_store VALUES (3, " Vans shoes", 43, 3, 59.99);
+INSERT into my_store VALUES (4, "New Balance shoes", 25, 2, 69.99);
+INSERT into my_store VALUES (5, "Reebok shoes", 15, 1, 39.99);
+INSERT into my_store VALUES (6, "Converse shoes", 34, 3, 49.99);
+INSERT into my_store VALUES (7, "Puma shoes", 13, 1, 85.99);
+INSERT into my_store VALUES (8, "Asics shoes", 44, 2, 37.99);
+INSERT into my_store VALUES (9, "Skechers shoes", 17, 3, 24.99);
+INSERT into my_store VALUES (10, "Under Armor shoes", 25, 1, 46.99);
+INSERT into my_store VALUES (11, "Fila shoes", 10, 3, 15.99);
+INSERT into my_store VALUES (12, "Clarks shoes", 12, 1, 23.99);
+INSERT into my_store VALUES (13, "Crocs shoes", 24, 1, 35.99);
+INSERT into my_store VALUES (14, "Wilson shoes", 12, 2, 43.99);
+INSERT into my_store VALUES (15, "Lotto shoes", 27, 3, 34.99);
+
+--display the database ordered by price
+SELECT * FROM my_store
+ORDER BY price asc;
+
+--display the avg price of items in aisle 3
+SELECT AVG(price) "avg aisle item price"
+FROM my_store 
+WHERE aisle='3';
+
+-- what 5 items do we have the least of?
+SELECT item, quantity, price
+FROM my_store 
+ORDER by quantity
+LIMIT 5;
