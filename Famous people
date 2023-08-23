@@ -1,0 +1,31 @@
+/* Create table about the people and what they do here */
+CREATE TABLE celebrities (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER,
+    nationality TEXT);
+    
+INSERT INTO celebrities (fullname, age, nationality) VALUES ("Harrison Ford", 81, "US");
+INSERT INTO celebrities (fullname, age, nationality) VALUES ("Andrew Garfield", 40, "US");
+INSERT INTO celebrities (fullname, age, nationality) VALUES ("Tobey Maguire", 48, "US");
+INSERT INTO celebrities (fullname, age, nationality) VALUES ("Tom Holland", 27, "UK");
+INSERT INTO celebrities (fullname, age, nationality) VALUES ("Henry Cavill", 40, "US");
+
+CREATE table wealth (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    celebrity_id INTEGER,
+    net_worth TEXT,
+    source_wealth TEXT);
+    
+INSERT INTO wealth (celebrity_id, net_worth, source_wealth) VALUES (1, "300 million", "Acting");
+INSERT INTO wealth (celebrity_id, net_worth, source_wealth) VALUES (2, "16 million", "Acting");
+INSERT INTO wealth (celebrity_id, net_worth, source_wealth) VALUES (3, "75 million", "Acting");
+INSERT INTO wealth (celebrity_id, net_worth, source_wealth) VALUES (4, "25 million", "Acting");
+INSERT INTO wealth (celebrity_id, net_worth, source_wealth) VALUES (5, "50 million", "Acting");
+
+
+/*Return total net worth for each celebrity*/
+SELECT celebrities.fullname, wealth.net_worth
+FROM celebrities
+JOIN wealth
+ON celebrities.id = wealth.celebrity_id;
